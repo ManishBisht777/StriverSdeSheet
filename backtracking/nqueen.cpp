@@ -33,7 +33,10 @@ bool isSafe1(int row, int col, vector<string> board, int n)
     return true;
 }
 
-void solve(int col, vector<string> &board, vector<vector<string>> &ans, int n)
+ok
+
+    void
+    solve(int col, vector<string> &board, vector<vector<string>> &ans, int n)
 {
     if (col == n)
     {
