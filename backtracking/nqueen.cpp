@@ -1,3 +1,5 @@
+// not optimal solution
+
 bool isSafe1(int row, int col, vector<string> board, int n)
 {
     // check upper element
