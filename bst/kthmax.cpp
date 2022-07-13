@@ -1,26 +1,24 @@
-class Solution
+void helper(TreeNode<int> *root, int &k, int &ans)
 {
-private:
-    int i = 0, k;
-    void dfs(Node *root, int &a)
+    if (!root)
+        return;
+
+    helper(root->right, k, ans);
+    k--;
+    if (k == 0)
     {
-        if (root == NULL)
-            return;
-
-        dfs(root->right, a);
-        ++i;
-        if (i == k)
-            a = root->data;
-        dfs(root->left, a);
+        ans = root->data;
+        return;
     }
+    helper(root->left, k, ans);
+}
 
-public:
-    int kthLargest(Node *root, int K)
-    {
-        int a = -1;
-        k = K;
-        dfs(root, a);
-
-        return a;
-    }
-};
+int KthLargestNumber(TreeNode<int> *root, int k)
+{
+    // Write your code here.
+    if (!root)
+        return -1;
+    int i = 0, ans = -1;
+    helper(root, k, ans);
+    return ans;
+}
