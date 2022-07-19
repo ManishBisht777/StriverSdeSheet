@@ -18,7 +18,7 @@ vector<int> dfsOfGraph(int v, vector<int> adj[])
     for (int i = 0; i < v; i++)
     {
         if (!vis[i])
-            dfs(ans, vis, adj, 0);
+            dfs(ans, vis, adj, i);
     }
 
     return ans;
