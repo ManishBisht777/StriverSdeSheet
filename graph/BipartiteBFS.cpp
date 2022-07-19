@@ -1,7 +1,6 @@
 bool bfs(int node, vector<int> adj[], vector<int> &color)
 {
     queue<int> q;
-    color[node] = 1;
     q.push(node);
     while (!q.empty())
     {
@@ -22,11 +21,9 @@ bool bfs(int node, vector<int> adj[], vector<int> &color)
 }
 bool isGraphBirpatite(vector<vector<int>> &edges)
 {
-    // Write your code here.
-    int n = edges[0].size();
-
+    int n = edges.size();
     vector<int> adj[n];
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
@@ -37,16 +34,16 @@ bool isGraphBirpatite(vector<vector<int>> &edges)
             }
         }
     }
-
     vector<int> color(n, -1);
-
     for (int i = 0; i < n; i++)
     {
         if (color[i] == -1)
         {
+            color[i] = 1;
             if (!bfs(i, adj, color))
                 return false;
         }
     }
     return true;
+    // Write your code here.
 }
